@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
+import { useContext } from "react";
 
-const AllExpenses = () => {
-  return <ExpensesOutput expensesPeriod="Total" />;
-};
+import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
+import { ExpensesContext } from "../store/expenses-context";
+
+function AllExpenses() {
+  const expensesCtx = useContext(ExpensesContext);
+
+  return (
+    <ExpensesOutput
+      expenses={expensesCtx.expenses}
+      expensesPeriod="Total"
+      fallbackText="No registered expenses found!"
+    />
+  );
+}
 
 export default AllExpenses;
-
-const styles = StyleSheet.create({});
