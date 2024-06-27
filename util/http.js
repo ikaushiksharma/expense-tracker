@@ -1,14 +1,18 @@
 import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
+// "https://expense-tracker-app-d570a-default-rtdb.europe-west1.firebasedatabase.app";
 
 export async function storeExpense(expenseData) {
+  console.log("env", BACKEND_URL);
   const response = await axios.post(BACKEND_URL + "/expenses.json", expenseData);
   const id = response.data.name;
   return id;
 }
 
 export async function fetchExpenses() {
+  console.log("env", BACKEND_URL);
+
   const response = await axios.get(BACKEND_URL + "/expenses.json");
 
   const expenses = [];

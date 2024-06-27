@@ -58,3 +58,5 @@ function ExpensesContextProvider({ children }) {
 
   return <ExpensesContext.Provider value={value}>{children}</ExpensesContext.Provider>;
 }
+
+export default ExpensesContextProvider;

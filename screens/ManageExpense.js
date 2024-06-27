@@ -54,6 +54,7 @@ function ManageExpense({ route, navigation }) {
       }
       navigation.goBack();
     } catch (error) {
+      console.log(error.message);
       setError("Could not save data - please try again later!");
       setIsSubmitting(false);
     }
